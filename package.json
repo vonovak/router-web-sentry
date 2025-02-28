@@ -5,7 +5,9 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "deploy": "npx expo export -p web && npx eas-cli@latest deploy"
+    "deploy": "yarn export && npx eas-cli@latest deploy",
+    "export": "npx expo export -p web && yarn sentry:sourcemaps",
+    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org abc --project xyz ./dist && sentry-cli sourcemaps upload --org abc --project xyz ./dist"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.2",
